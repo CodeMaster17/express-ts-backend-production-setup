@@ -1,12 +1,14 @@
 # This repo step by step explains how to start with nodejs production setup
 
+## Initial setup
+
 1. Initialize the repo
 
 ```
 npm init -y
 ```
 
-1. Install express
+2. Install express
 
 ```
 npm install express
@@ -23,3 +25,19 @@ npm install express
         "start": "node index.js"
    },
    ```
+
+## Husky setup
+
+1. Install `husky` and `lint-staged` as devDependencies
+
+   ```
+   npm i husky lint-staged -D
+   ```
+
+2. Initialize `husky`
+
+   ```
+   npx husky init
+   ```
+
+=> A `.husky` folder would be created
