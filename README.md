@@ -2,10 +2,14 @@
 
 1. Initialize the repo
 
-`npm init -y`
+```
+npm init -y
+```
 
-2. Install express
+1. Install express
 
-`npm install express`
+```
+npm install express
+```
 
 3. Create `.gitignore` file and add node_modules
