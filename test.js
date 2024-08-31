@@ -1,1 +1,1 @@
-console.log("This is sample test file")
+console.log("Test file ran")
