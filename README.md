@@ -1,5 +1,9 @@
 # This repo step by step explains how to start with nodejs production setup
 
+## This setup is based upon MVC architecture.
+
+MVC architecture is a software design pattern for developing web applications. It is made up of three parts: Model, View, and Controller.
+
 ## Initial setup
 
 1. Initialize the repo
@@ -112,3 +116,7 @@ npm install express
    ```
    dist
    ```
+
+## Setting up folder structure
+
+![Alt text](image.png)
