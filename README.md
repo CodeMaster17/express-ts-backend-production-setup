@@ -120,3 +120,11 @@ npm install express
 ## Setting up folder structure
 
 ![Alt text](image.png)
+
+## Commitlint setup
+
+1. Install `@commitlint/cli` and `@commitlint/config-conventional` as devDependencies
+
+   ```
+   npm i @commitlint/cli @commitlint/config-conventional -D
+   ```
