@@ -168,3 +168,64 @@ npm install express
    ```
    npx --no-install commitlint --edit $1
    ```
+
+## Eslint setup
+
+1. Install `eslint` and `@typescript-eslint/parser` as devDependencies
+
+   ```
+   npm install --save-dev eslint @eslint/js @types/eslint__js typescript typescript-eslint
+   ```
+
+2. Create eslint configuration file `.eslintrc.js`
+
+   ```
+   // @ts-check
+   ```
+
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+eslint.configs.recommended,
+...tseslint.configs.recommended,
+);
+
+````
+
+3. Run command `npx eslint .`
+
+It will show the errors in the code
+![Alt text](image-1.png)
+
+4. To fix this, change the following configuration in `.eslint.config.mjs`
+
+   ```
+      // @ts-check
+
+   import eslint from '@eslint/js';
+   import tseslint from 'typescript-eslint';
+
+   export default tseslint.config(
+      {
+         languageOptions: {
+               parserOptions: {
+                  project: true,
+                  tsconfigRootDir: import.meta.dirname,
+               },
+         },
+         files: ['**/*.ts'],
+         extends: [
+               eslint.configs.recommended,
+               ...tseslint.configs.recommended,
+         ],
+         rules: {
+               // this is done so that there is no console while we push code to github production
+               // large number of consoles slow down the performance of the code
+               'no-console': 'off',
+               quotes: ['error', 'single', { allowTemplateLiterals: true }],
+         }
+      }
+   );
+``
+````
