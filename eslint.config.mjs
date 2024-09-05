@@ -2,6 +2,7 @@
 
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default tseslint.config(
     {
@@ -15,6 +16,7 @@ export default tseslint.config(
         extends: [
             eslint.configs.recommended,
             ...tseslint.configs.recommended,
+            eslintConfigPrettier
         ],
         rules: {
             // this is done so that there is no console while we push code to github production
