@@ -300,3 +300,12 @@ It will show the errors in the code
      "dev": "cross-env NODE_ENV=development nodemon src/server.ts",
     ```
 
+
+## Express setup
+
+1. Install `express` and `@types/express`
+
+    ```
+    npm i express 
+    npm i @types/express -D
+    ```
