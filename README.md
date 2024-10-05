@@ -309,3 +309,11 @@ It will show the errors in the code
     npm i express 
     npm i @types/express -D
     ```
+
+## Logger setup
+
+1. Install `winston` and `@types/winston`
+
+    ```
+    npm i winston
+    ```
