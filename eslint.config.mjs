@@ -22,7 +22,7 @@ export default tseslint.config(
             // this is done so that there is no console while we push code to github production
             // large number of consoles slow down the performance of the code
             'no-console': 'off',
-            'no-useless-catch':0,
+            'no-useless-catch': 0,
             quotes: ['error', 'single', { allowTemplateLiterals: true }],
         }
     }
