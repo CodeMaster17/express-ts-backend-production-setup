@@ -9,6 +9,6 @@ export default {
     SERVER_URL: process.env.SERVER_URL,
 
     // database
-    DB_HOST: process.env.DB_URL
+    DB_HOST: process.env.DB_HOST
 };
 
