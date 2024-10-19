@@ -5,6 +5,12 @@ import { ConsoleTransportInstance, FileTransportInstance } from 'winston/lib/win
 import config from '../config/config';
 import { EApplicationEnviroment } from '../constants/application';
 
+// for source map
+import * as sourceMapSupport from 'source-map-support';
+
+// linking trace support
+sourceMapSupport.install();
+
 const consoleLogFormat = format.printf((info) => {
     const { level, message, timestamp, meta = {} } = info;
     const customLevel = level.toUpperCase();
