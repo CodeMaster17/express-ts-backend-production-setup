@@ -5,8 +5,12 @@ import { ConsoleTransportInstance, FileTransportInstance } from 'winston/lib/win
 import config from '../config/config';
 import { EApplicationEnviroment } from '../constants/application';
 
+// winston mongodb
+import 'winston-mongodb';
+
 // for source map
 import * as sourceMapSupport from 'source-map-support';
+import { MongoDBTransportInstance } from 'winston-mongodb';
 
 // linking trace support
 sourceMapSupport.install();
@@ -76,10 +80,25 @@ const FileTransport = (): Array<FileTransportInstance> => {
     ];
 };
 
+// mongodb transport
+
+const MongoDBTransport = (): Array<MongoDBTransportInstance> => {
+    return [
+        new transports.MongoDB({
+            level: 'info',
+            db: config.DB_HOST as string,
+            options: { useUnifiedTopology: true },
+            collection: 'application-logs',
+            metaKey: 'meta',
+            expireAfterSeconds: 60 * 60 * 24 * 30 // logs expie after 30 days
+        })
+    ];
+};
+
 export default createLogger({
     defaultMeta: {
         meta: {}
     },
-    transports: [...consoleTransport(), ...FileTransport()]
+    transports: [...consoleTransport(), ...FileTransport(), ...MongoDBTransport()]
 });
 
