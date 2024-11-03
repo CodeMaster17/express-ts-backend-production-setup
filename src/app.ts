@@ -5,11 +5,18 @@ import globalErrorHandler from './middleware/globalErrorHandler';
 import { responseMessage } from './constants/responseMessage';
 import httpError from './utils/httpError';
 import helmet from 'helmet';
-
+import cors from 'cors';
 const app: Application = express();
 
 // middleware
 app.use(helmet());
+app.use(
+    cors({
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        origin: ['http://localhost:3000'], // allow only frontend to access
+        credentials: true // enable set cookie
+    })
+);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../', 'public')));
 
